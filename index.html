@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Farewell 2025 | Wing Ready, Sky Waiting</title>
+  <meta name="description" content="Celebrate our seniors with memories, messages, and moments. Join us for Farewell 2025!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+  --bg: #0a0e16; /* deep navy base */
+  --card: rgba(255,255,255,0.06);
+  --txt: #e6e8ee;
+  --muted:#9ca3af;
+  --acc1:#6d28d9;
+  --acc2:#14b8a6;
+  --ring: #8b5cf6;
+  --ok:#22c55e;
+  --warn:#f59e0b;
+  --bad:#ef4444;
+  --shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+}
+:root.light{
+  --bg:#f7f7fb; --card:#ffffff; --txt:#0b0f17; --muted:#4b5563; --ring:#7c3aed; --shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  /* Professional background: deep gradient + subtle vignette + hint of texture */
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(109,40,217,.14), transparent 60%),
+    radial-gradient(1000px 600px at 110% 10%, rgba(20,184,166,.14), transparent 60%),
+    radial-gradient(60% 120% at 50% -10%, rgba(255,255,255,.05), transparent 60%),
+    linear-gradient(180deg,#1e2b40 0%, #142237 45%, #0b1626 100%);
+  color:var(--txt);
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1100px,92%);margin-inline:auto}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.2rem;background:linear-gradient(135deg,var(--acc1),var(--acc2));color:white;border:none;border-radius:18px;font-weight:700;cursor:pointer;box-shadow:var(--shadow);transition:transform .12s ease, filter .2s ease}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);color:var(--txt)}
+
+header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,0));backdrop-filter:saturate(1.2) blur(8px)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.brand{display:flex;align-items:center;gap:.7rem;font-weight:800;letter-spacing:.2px}
+.brand .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 210deg,var(--acc1),var(--acc2));box-shadow:0 6px 18px rgba(124,58,237,.4)}
+.nav a{opacity:.9;margin-left:1rem}
+
+.hero{display:grid;gap:1.5rem;grid-template-columns:1.1fr .9fr;align-items:center;padding:60px 0 40px}
+.hero-card{background:var(--card);border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);border-radius:22px;padding:28px;}
+.title{font-size:clamp(26px,5vw,54px);line-height:1.05;margin:0}
+.subtitle{color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
+.meta{display:flex;flex-wrap:wrap;gap:.8rem;margin:1rem 0}
+.pill{padding:.5rem .8rem;border:1px solid rgba(255,255,255,.18);border-radius:999px;font-size:.9rem;color:var(--muted)}
+.countdown{display:flex;gap:12px;margin:10px 0}
+.timebox{flex:1;min-width:72px;text-align:center;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:12px}
+.timebox .num{font-size:28px;font-weight:800}
+.timebox .lab{font-size:12px;color:var(--muted)}
+
+.glass{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:22px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:18px}
+
+.section{padding:36px 0}
+.section h2{margin:0 0 10px;font-size:clamp(22px,3vw,30px)}
+.section p.lead{color:var(--muted);margin-top:0}
+
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.gallery img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.1);
+  transition:transform .18s ease, box-shadow .18s ease;
+  will-change:transform;
+}
+.gallery img:hover{
+  transform:scale(1.08);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  z-index:2;
+}
+
+.card{padding:18px}
+
+footer{padding:40px 0;color:var(--muted);text-align:center}
+.credits a{opacity:.85}
+
+.toggle{cursor:pointer; padding:8px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.18)}
+.muted{color:var(--muted)}
+.muted-list{margin:0; padding-left:18px; color:var(--muted)}
+
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+}
+
+/* Section title flair */
+.section h2::after{content:"🕊️"; margin-left:.4rem; opacity:.7; font-size:0.9em}
+
+/* Bird glide animation — subtle */
+.plane{position:absolute; right:-60px; top:-20px; font-size:34px; animation:glide 24s linear infinite; filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}
+@keyframes glide{0%{transform:translateX(-120vw) translateY(0) rotate(6deg)}50%{transform:translateX(-20vw) translateY(-8px) rotate(4deg)}100%{transform:translateX(10vw) translateY(0) rotate(6deg)}}
+
+/* Runway progress bar (kept) */
+.runway{margin-top:12px}
+.runway-track{position:relative;height:28px;border-radius:999px;background:linear-gradient(180deg,#1e293b 0%, #0f172a 100%);box-shadow:inset 0 0 0 2px rgba(255,255,255,.15), var(--shadow);overflow:hidden}
+.runway-centerline{position:absolute;inset:0; background:repeating-linear-gradient(90deg,transparent 0 30px, rgba(255,255,255,.8) 30px 50px, transparent 50px 80px); opacity:.5; mix-blend:screen}
+.runway-fill{position:absolute;inset:0 auto 0 0;width:0%;background:linear-gradient(90deg,#38bdf8,#22d3ee);opacity:.35}
+.runway-plane{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);font-size:22px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+.runway-meta{display:flex;justify-content:flex-end;font-weight:700;color:#e2e8f0;mix-blend:normal;margin-top:6px}
+
+/* Drive embedded folder */
+.drive-embed{border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.03);margin-bottom:12px}
+.drive-frame{width:100%; height:560px; border:0}
+
+/* Titles grid + tooltip */
+.titles-grid{grid-template-columns:repeat(3,1fr)}
+.title-card{position:relative;padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05)}
+.title-card .t{font-weight:800}
+.title-card .tip{
+  position:absolute;left:12px;right:12px;bottom:calc(100% + 8px);
+  background:#0b1220;color:#e2e8f0;border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);
+  opacity:0;transform:translateY(6px);pointer-events:none;transition:all .15s ease;
+  font-size:14px;line-height:1.35
+}
+.title-card:hover .tip{opacity:1;transform:translateY(0)}
+.title-card .name{font-weight:700}
+.title-card .desc{color:#a5b4fc}
+@media (max-width: 900px){ .titles-grid{grid-template-columns:1fr} }
+
+  </style>
+</head>
+<body class="sky">
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Farewell 2025 — Wing Ready, Sky Waiting</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#titles">Titles</a>
+        <a href="#faq">FAQ</a>
+        <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌗</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-card">
+        <h1 class="title">Wing Ready, Sky Waiting 🕊️</h1>
+        <p class="subtitle">Board your memories and fasten seatbelts — we’re taking our seniors to new heights. Dress sharp, bring your best smiles, and get set for takeoff!</p>
+
+        <!-- Meta -->
+        <div class="meta">
+          <span class="pill">📅 <b id="dateText">Dec 09, 2025</b></span>
+          <span class="pill">⏰ <b id="timeText">8:00 AM – 1:00 PM</b></span>
+          <span class="pill">📍 <b id="venueText">Auditorium, &lt;Your Campus&gt;</b></span>
+        </div>
+
+        <!-- Countdown under date–time–place -->
+        <div class="countdown" id="countdown">
+          <div class="timebox"><div class="num" id="d">--</div><div class="lab">Days</div></div>
+          <div class="timebox"><div class="num" id="h">--</div><div class="lab">Hours</div></div>
+          <div class="timebox"><div class="num" id="m">--</div><div class="lab">Minutes</div></div>
+          <div class="timebox"><div class="num" id="s">--</div><div class="lab">Seconds</div></div>
+        </div>
+
+        <!-- Runway progress (kept) -->
+        <div class="runway" id="runway">
+          <div class="runway-track">
+            <div class="runway-centerline"></div>
+            <div class="runway-fill" id="runwayFill"></div>
+            <div class="runway-plane" id="runwayPlane">🛫</div>
+          </div>
+          <div class="runway-meta"><span id="runwayPct">0%</span> to takeoff</div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+          <a href="#about" class="btn">More details</a>
+          <a href="#gallery" class="btn secondary">View Gallery</a>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="hero-card" style="display:grid; gap:14px">
+          <h3 style="margin:0">Highlights</h3>
+          <ul class="muted-list">
+            <li>Runway walk & boarding introductions</li>
+            <li>Fun titles as boarding passes</li>
+            <li>In-farewell entertainment: performances & open mic</li>
+            <li>Photo booth with pilot props & wings</li>
+          </ul>
+          <div class="glass card">
+            <small class="muted">Need info?</small>
+            <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap">
+              <a class="btn secondary" href="#faq">FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="plane" aria-hidden="true">🕊️</div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="glass card">
+          <h2>Pre-Farewell Briefing</h2>
+          <p class="lead">We’re sending off our graduating batch with gratitude, laughter, and love. Help us make their last evening on campus unforgettable.</p>
+          <ul class="muted-list">
+            <li>Theme: <b>Wing Ready, Sky Waiting</b> (professional deep blues, silver accents)</li>
+            <li>Dress code: <b>Formals</b></li>
+            <li>Hosts: <b>Class XI & Cultural Council</b></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
+      <div class="glass card">
+        <h2>Farewell Log (Gallery)</h2>
+        <p class="lead">Photos from our shared Google Drive folder (embedded below). For hover-zoom tiles, add file IDs in <code>script.js</code>.</p>
+
+        <!-- Embedded Google Drive folder (shows everything in the folder) -->
+        <div class="drive-embed">
+          <iframe
+            src="https://drive.google.com/embeddedfolderview?id=1PR210VmqXe9ofMQSjjwUi3E9wcxdBDav#grid"
+            class="drive-frame"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          ></iframe>
+        </div>
+
+        <!-- Native hover-zoom grid (no captions). Populate by IDs in script.js -->
+        <div class="gallery" id="galleryGrid" hidden></div>
+      </div>
+    </section>
+
+    <!-- FAREWELL TITLES -->
+    <section id="titles" class="section">
+      <div class="glass card">
+        <h2>Crew Manifest — Farewell Titles</h2>
+        <p class="lead">Hover on a title to see the student name and a positive note.</p>
+        <div id="titlesGrid" class="grid titles-grid"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="glass card">
+        <h2>Passenger FAQs</h2>
+        <details open>
+          <summary><b>What’s the dress code?</b></summary>
+          <p class="lead">Formals. Think suits, sarees, or elegant ethnic fits. Keep it classy ✨</p>
+        </details>
+        <details>
+          <summary><b>Can juniors perform?</b></summary>
+          <p class="lead">Yes! Register with the Cultural Council by <b>December 1</b>.</p>
+        </details>
+        <details>
+          <summary><b>Will photos be shared?</b></summary>
+          <p class="lead">We’ll upload highlights here and on the official social pages.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="credits">© <span id="year"></span> Farewell Committee • Built with ❤️ by <a href="#">Your Team</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // === CONFIG — EDIT THESE FIELDS ===
+const EVENT_DATE = new Date('December 09, 2025 08:00:00 GMT+0530'); // IST
+const EVENT_TIME_TEXT = '8:00 AM – 1:00 PM';
+const VENUE_NAME = 'Auditorium, <Your Campus>';
+
+// GALLERY OPTION A: Native grid with hover-zoom (no captions)
+// Paste public image FILE IDs here to enable (each file must be shared as Anyone with link -> Viewer).
+// Example ID looks like: 1AbCdEfgHIJKLmNoP123...
+const DRIVE_FILE_IDS = [
+  // "YOUR_FILE_ID_1", "YOUR_FILE_ID_2", ...
+];
+
+// === INITIAL TEXT ===
+document.querySelector('#venueText').innerHTML = VENUE_NAME;
+document.querySelector('#timeText').textContent = EVENT_TIME_TEXT;
+document.querySelector('#year').textContent = new Date().getFullYear();
+const dateOpts = {weekday:'short', year:'numeric', month:'short', day:'numeric'};
+document.querySelector('#dateText').textContent = EVENT_DATE.toLocaleDateString(undefined, dateOpts);
+
+// Theme toggle (persist)
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('farewell-theme');
+if(savedTheme === 'light'){ root.classList.add('light'); }
+themeToggle.addEventListener('click',()=>{
+  root.classList.toggle('light');
+  localStorage.setItem('farewell-theme', root.classList.contains('light') ? 'light' : 'dark');
+});
+
+// === COUNTDOWN + RUNWAY (kept) ===
+const LAUNCH_DATE = new Date(EVENT_DATE.getFullYear(), EVENT_DATE.getMonth()-1, 1); // 1 month before
+function tick(){
+  const now = new Date();
+  const diff = EVENT_DATE - now;
+
+  if(diff <= 0){
+    document.getElementById('countdown').innerHTML =
+      '<div class="timebox"><div class="num">🎉</div><div class="lab">It\'s today!</div></div>';
+    const fill = document.getElementById('runwayFill'); if(fill) fill.style.width = '100%';
+    const plane = document.getElementById('runwayPlane'); if(plane) plane.style.left = '100%';
+    const pct = document.getElementById('runwayPct'); if(pct) pct.textContent = '100%';
+    return;
+  }
+
+  const s = Math.floor(diff/1000);
+  const d = Math.floor(s/86400);
+  const h = Math.floor((s%86400)/3600);
+  const m = Math.floor((s%3600)/60);
+  const sec = s%60;
+  document.getElementById('d').textContent = d;
+  document.getElementById('h').textContent = h;
+  document.getElementById('m').textContent = m;
+  document.getElementById('s').textContent = String(sec).padStart(2,'0');
+
+  // Runway progress
+  const total = Math.max(1, EVENT_DATE - LAUNCH_DATE);
+  const gone = Math.max(0, Math.min(total, now - LAUNCH_DATE));
+  const percent = Math.max(0, Math.min(100, Math.round((gone/total)*100)));
+  const fill = document.getElementById('runwayFill'); if(fill) fill.style.width = percent + '%';
+  const plane = document.getElementById('runwayPlane'); if(plane) plane.style.left = percent + '%';
+  const pct = document.getElementById('runwayPct'); if(pct) pct.textContent = percent + '%';
+}
+tick();
+setInterval(tick, 1000);
+
+// === GALLERY: Native hover-zoom grid from Drive file IDs (optional)
+(function(){
+  const grid = document.getElementById('galleryGrid');
+  if(!grid) return;
+  if(DRIVE_FILE_IDS.length === 0){ grid.hidden = true; return; }
+  const toSrc = id => `https://drive.google.com/uc?export=view&id=${id}`;
+  DRIVE_FILE_IDS.forEach(id=>{
+    const img = new Image();
+    img.loading = 'lazy';
+    img.src = toSrc(id);
+    img.alt = 'Gallery';
+    grid.appendChild(img);
+  });
+  grid.hidden = false;
+})();
+
+// === Crew Manifest — Farewell Titles (hover tooltip)
+const TITLES = [
+  {name:"Adhiraj Singh", title:"Happy Heart 💖", desc:"Always cheerful, spreads smiles wherever he goes, and lights up every room with positivity."},
+  {name:"Aditya", title:"Joyful Groom Maker 🌟", desc:"Known for his energy and fun-loving spirit — he can turn any dull day into a celebration."},
+  {name:"Aditya Tripathi", title:"Handsome Humble 😎", desc:"A confident, cool-headed guy who’s always ready to lend a helping hand with a smile."},
+  {name:"Adrija Majumder", title:"Innocent Smile Icon 😊", desc:"Her pure heart and innocent smile make her the sunshine of every group."},
+  {name:"Alex Mangastabam", title:"Pure Soul, Heart of Gold 💫", desc:"A kind-hearted and genuine person who treats everyone with care and respect."},
+  {name:"Arnab Sinha", title:"The Wise Card Player 🧠", desc:"Smart, strategic, and calm — a thinker who always knows his next move."},
+  {name:"Ayushmaan Datta", title:"Fearless Performer 🎤", desc:"Always confident on stage and off — he never hesitates to take challenges head-on."},
+  {name:"CH Sankar Mahadev", title:"Brightest Achiever 🌠", desc:"Intelligent and hardworking, always setting high standards for himself and others."},
+  {name:"Deepika", title:"Multi-Talent Dynamo 💃", desc:"From academics to arts, she shines everywhere — truly a versatile star."},
+  {name:"Dolly Kumari", title:"The Kind Soul 🤍", desc:"Always ready to help, her compassion and warmth touch everyone around her."},
+  {name:"Jitesh Pal", title:"Mr. Perfect Gentleman 🎩", desc:"Polite, dependable, and confident — the true definition of a gentleman."},
+  {name:"Kaushik Kumar Mallick", title:"Nice & Commanding 💪", desc:"Strong, sincere, and respected — his leadership always inspires his peers."},
+  {name:"Laya Botta", title:"Cheerful Friend Maker 🌈", desc:"Always full of laughter and kindness — she can turn strangers into friends in seconds."},
+  {name:"P. L. N. Bharat Chandra", title:"Silent Supporter 🤫", desc:"Quiet yet powerful — always there when you need him the most."},
+  {name:"Pamula Lakshmi Prasanna", title:"Graceful Performer 🌹", desc:"Elegant in her moves and humble in her words — a true performer with class."},
+  {name:"Parvatam Moukthika", title:"Fashionable Rhythm Princess 👑", desc:"Stylish, graceful, and full of rhythm — she blends talent with elegance."},
+  {name:"Pragati Singh", title:"Model Dancer & Fashion Diva 💃", desc:"Full of confidence and charm, she owns every stage she steps on."},
+  {name:"Prayagraj Dakua", title:"Gifted Athlete ⚽", desc:"Energetic and determined — always giving his 100% on and off the field."},
+  {name:"Priyani Tyagi", title:"Sincere & Smart Girl 📚", desc:"Focused, intelligent, and disciplined — she always leads by example."},
+  {name:"Priyanshi Pandey", title:"Bubbly Performer 🌸", desc:"Her laughter is contagious and her spirit unmatchable — she brings joy everywhere."},
+  {name:"R. Vishal", title:"Future Tech Genius 💻", desc:"A bright mind with a creative spark — destined to innovate and inspire."},
+  {name:"Ratikanta Swain", title:"Silent Smart Achiever 🎯", desc:"Calm, focused, and dedicated — he lets his achievements speak for him."},
+  {name:"Saina Saimon", title:"Soft-Spoken Star 🌷", desc:"Her gentle nature and kind heart make her truly special."},
+  {name:"Sanjana Sahu", title:"Elegant Go-Getter 🌟", desc:"Confident, ambitious, and unstoppable — she achieves everything with grace."},
+  {name:"Sarvoch Udeck", title:"Intelligent Sportophile 🏅", desc:"A perfect blend of brains and brawn — intelligent, athletic, and admired by all."},
+  {name:"Satya Narayan Barat", title:"Warm-Hearted Buddy 🤝", desc:"Friendly, humble, and always supportive — everyone’s favorite companion."},
+  {name:"Sayesha Pasrija", title:"Bold & Beautiful Performer 🌺", desc:"Charismatic and fearless — she leaves a sparkle wherever she goes."},
+  {name:"Shobhit Singh", title:"Diligent Gentleman 🧠", desc:"Responsible, wise, and reliable — the true definition of hard work and integrity."},
+  {name:"Sumeet Kumar", title:"Dribbler & Performer ⚡", desc:"Energetic and talented — he brings enthusiasm to every game and every moment."},
+  {name:"V. Nithish Kumar", title:"Daring Conversationalist 🎤", desc:"Confident and expressive — his words always leave an impact."},
+  {name:"V. Vaishnavi", title:"Dancing Queen 💃", desc:"Graceful, lively, and full of rhythm — a true queen of dance and joy."},
+  {name:"Yashvi Grewal", title:"Miss Ravishing Beauty 🌼", desc:"Poised, elegant, and kind-hearted — beauty with brains and a golden soul."},
+  {name:"Sonakshi", title:"Sweetheart 💗", desc:"Sweet, caring, and full of love — she makes every moment brighter with her presence."}
+];
+
+(function renderTitles(){
+  const grid = document.getElementById('titlesGrid');
+  TITLES.forEach(item=>{
+    const card = document.createElement('div');
+    card.className = 'title-card';
+    card.innerHTML = `
+      <div class="t">${item.title}</div>
+      <div class="tip">
+        <div class="name">${item.name}</div>
+        <div class="desc">${item.desc}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+})();
+
+// === Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href');
+    const el = document.querySelector(id);
+    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+})();
+
+  </script>
+</body>
+</html>
